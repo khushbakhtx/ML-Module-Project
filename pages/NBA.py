@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import joblib
+from PIL import Image
 
 one = open("models/nba_joblib.pkl","rb")
 model = joblib.load(one)
@@ -12,15 +13,19 @@ def predict_points(intercept, field_goals, three_points, three_points_percent, f
     prediction = model.predict(input_data)
     return prediction
 
+image_1 = Image.open("img/125198.jpg")
+
 def main():
     html_temp = """
-    <div style="background-color:#93d;padding:10px;border-radius:5px">
+    <div style="background-color:#96e;padding:10px;border-radius:5px">
         <h2 style="color:white;text-align:center;">Points prediction</h2>
-    </div>
-    """
+    </div><br>
+    """    
     st.markdown(html_temp, unsafe_allow_html=True)
 
-    intercept = st.text_input("Intercept", "2.007")
+    st.image(image_1, use_column_width=True, caption="Kobe Bryant")    
+
+    intercept = 2.007
     field_goals = st.text_input("Field Goals Made (FGM)", "")
     three_points = st.text_input("Three Points Made (3PM)", "")
     three_points_percent = st.text_input("Three Points Made Percentage (3PM%)", "")

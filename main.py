@@ -7,11 +7,11 @@ def menu():
     st.sidebar.page_link("pages/obesity.py", label="Obesity Level Prediction")
     st.sidebar.page_link("pages/Imon-International.py", label="Imon-International")
 
+st.caption("Dev: Khushbakht Shoymardonov")
 html_temp = """
-<p>ML models app</p><br><br><br>
-<div style="background-color:#93d;padding:10px;border-radius:5px">
+<div style="background-color:#93d;padding:10px;border-radius:10px">
     <h2 style="color:white;text-align:center;">Welcome.</h2>
-</div>
+</div><br>
 """
 st.markdown(html_temp, unsafe_allow_html=True)
 menu()

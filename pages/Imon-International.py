@@ -4,7 +4,10 @@ import pandas as pd
 import pickle
 import joblib
 
-model = joblib.load("models/imon_international_model.joblib")
+
+model_info = joblib.load("models/imon.joblib")
+model = model_info['model']
+accuracy = model_info['accuracy']
 
 def predict_eligibility(gender, age, old_client, credit_amount, deadline, duration_of_long_onetime_expiration, expiration_june,
             privilege_period, goal_manzil, goal_capital, goal_main_sources, goal_buying_house, goal_consuming, goal_repair,
@@ -353,11 +356,10 @@ def main():
             education_post_graduate, education_high, education_elementary, education_secondary_partly, education_secondary_special,
             education_secondary, business_1, business_2, business_3, business_4, business_5, business_6, business_7,
             business_8)
-        st.write(result)
         if result == 0:
-            st.write("Sorry to inform, but you are not eligible for the loan")
+            st.write("К сожалению, данный клиент не может получить кредит(")
         elif result == 1:
-            st.success("Congratulations, you are eligible for the loan")
-        st.write("Accuracy of the model: ", 95.9, "%")
+            st.success("Поздравляем, данный клиент может получить кредит")
+        st.write("Точность модели: ", round(accuracy*100, 2), "%")
 if __name__=='__main__':
     main()

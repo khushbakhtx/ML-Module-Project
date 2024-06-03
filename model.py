@@ -26,6 +26,6 @@ y_pred_rfc = rfc_model.predict(X_test)
 score = rfc_model.score(X_test, y_test)
 print(f"Accuracy: {round(score*100, 1)}%")
 
-import joblib
-joblib.dump(rfc_model, "imon_international_model.joblib")
+# import joblib
+# joblib.dump(rfc_model, "imon_international_model.joblib")
 print(X.columns)

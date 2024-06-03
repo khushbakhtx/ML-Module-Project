@@ -18,7 +18,7 @@ def main():
     html_temp = """
     <div style="background-color:#93d;padding:10px;border-radius:5px">
         <h2 style="color:white;text-align:center;">Obesity Level Prediction</h2>
-    </div><br><br>
+    </div><br>
     """
     st.markdown(html_temp, unsafe_allow_html=True)
 

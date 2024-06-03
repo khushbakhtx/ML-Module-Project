@@ -2,6 +2,9 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import joblib
+from PIL import Image
+
+image_1 = Image.open("img/1.png")
 
 model = joblib.load("models/obesity_model.joblib")
 
@@ -18,6 +21,8 @@ def main():
     </div><br><br>
     """
     st.markdown(html_temp, unsafe_allow_html=True)
+
+    st.image(image_1, use_column_width=True)  
 
     gender = st.radio("Gender: ",
         key="gender",

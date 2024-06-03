@@ -3,7 +3,9 @@ import numpy as np
 import pandas as pd
 import pickle
 import joblib
+from PIL import Image
 
+image_1 = Image.open("img/2.jpg")
 
 model_info = joblib.load("models/imon.joblib")
 model = model_info['model']
@@ -37,6 +39,7 @@ def main():
     """
     st.caption("Imon-International")
     st.markdown(html_temp, unsafe_allow_html=True)
+    st.image(image_1, use_column_width=True)
 
     gend = st.radio("Gender: ",
         key="gender",

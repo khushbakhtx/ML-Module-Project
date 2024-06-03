@@ -357,7 +357,7 @@ def main():
         if result == 0:
             st.write("Sorry to inform, but you are not eligible for the loan")
         elif result == 1:
-            st.write("Congratulations, you are eligible for the loan")
+            st.success("Congratulations, you are eligible for the loan")
         st.write("Accuracy of the model: ", 95.9, "%")
 if __name__=='__main__':
     main()

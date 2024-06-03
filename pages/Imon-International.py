@@ -290,7 +290,7 @@ def main():
         business_6 = 0
         business_7 = 0
         business_8 = 0
-    elif business == ' Хизматрасони/Услуги':
+    elif business == 'Хизматрасони/Услуги':
         business_1 = 0
         business_2 = 0
         business_3 = 1

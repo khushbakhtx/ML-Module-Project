@@ -353,7 +353,7 @@ def main():
             education_post_graduate, education_high, education_elementary, education_secondary_partly, education_secondary_special,
             education_secondary, business_1, business_2, business_3, business_4, business_5, business_6, business_7,
             business_8)
-        
+        st.write(result)
         if result == 0:
             st.write("Sorry to inform, but you are not eligible for the loan")
         elif result == 1:

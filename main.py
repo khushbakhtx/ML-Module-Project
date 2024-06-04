@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 
 def menu():
     # Show a navigation menu for users
@@ -7,11 +8,33 @@ def menu():
     st.sidebar.page_link("pages/Obesity.py", label="Obesity Level Prediction")
     st.sidebar.page_link("pages/Imon-International.py", label="Imon-International")
 
-st.caption("Dev: Khushbakht Shoymardonov")
-html_temp = """
-<div style="background-color:#93d;padding:10px;border-radius:10px">
-    <h2 style="color:white;text-align:center;">Welcome.</h2>
+def gradual_print_small(text, delay=0.075):
+    placeholder = st.empty()
+    current_text = ""
+    for char in text:
+        current_text += char
+        placeholder.text(current_text)
+        time.sleep(delay)
+
+def gradual_print_large(text, delay=0.1):
+    placeholder = st.empty()
+    current_text = ""
+    for char in text:
+        current_text += char
+        placeholder.markdown(f"""
+<div style="background-color:#93d;padding:15px;border-radius:10px">
+    <h3 style="color:white;text-align:center;font-family: OCR A Std, monospace;">{current_text}</h3>
 </div><br>
-"""
-st.markdown(html_temp, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
+        time.sleep(delay)
+
+#gradual_print_small("Dev: Khushbakht Shoymardonov")
+st.caption("Dev: Khushbakht Shoymardonov")
 menu()
+gradual_print_large("Welcome to Machine Learning Repo.")
+# html_temp = f"""
+# <div style="background-color:#93d;padding:10px;border-radius:10px">
+#     <h2 style="color:white;text-align:center;">Welcome.</h2>
+# </div><br>
+# """
+#st.markdown(html_temp, unsafe_allow_html=True)

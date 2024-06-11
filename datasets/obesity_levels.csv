@@ -1,0 +1,8 @@
+ObesityLevel,Count,ObesityCategory
+Insufficient Weight,272,No Obesity
+Normal Weight,287,No Obesity
+Overweight I,290,No Obesity
+Overweight II,290,No Obesity
+Obesity Level I,351,Has Obesity
+Obesity Level II,297,Has Obesity
+Obesity Level III,324,Has Obesity

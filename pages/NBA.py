@@ -23,7 +23,7 @@ def main():
     """    
     st.markdown(html_temp, unsafe_allow_html=True)
 
-    st.image(image_1, use_column_width=True, caption="Kobe Bryant")    
+    #st.image(image_1, use_column_width=True, caption="Kobe Bryant")    
 
     intercept = 2.007
     field_goals = st.text_input("Field Goals Made (FGM)", "")

@@ -39,7 +39,7 @@ def main():
     """
     st.caption("Imon-International")
     st.markdown(html_temp, unsafe_allow_html=True)
-    st.image(image_1, use_column_width=True)
+    #st.image(image_1, use_column_width=True)
 
     gend = st.radio("Gender: ",
         key="gender",

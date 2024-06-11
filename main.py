@@ -1,4 +1,7 @@
 import streamlit as st
+from streamlit.components.v1 import html
+import pandas as pd
+from ipyvizzu import Chart, Data, Config, Style
 import time
 
 def menu():
@@ -28,13 +31,6 @@ def gradual_print_large(text, delay=0.1):
 """, unsafe_allow_html=True)
         time.sleep(delay)
 
-#gradual_print_small("Dev: Khushbakht Shoymardonov")
 st.caption("Dev: Khushbakht Shoymardonov")
 menu()
 gradual_print_large("Welcome to Machine Learning Repo.")
-# html_temp = f"""
-# <div style="background-color:#93d;padding:10px;border-radius:10px">
-#     <h2 style="color:white;text-align:center;">Welcome.</h2>
-# </div><br>
-# """
-#st.markdown(html_temp, unsafe_allow_html=True)

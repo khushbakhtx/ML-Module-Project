@@ -3,10 +3,21 @@ import numpy as np
 import pandas as pd
 import joblib
 from PIL import Image
-
+import time
 image_1 = Image.open("img/1.png")
 
 model = joblib.load("models/obesity_model.joblib")
+def gradual_print_large(text, delay=0.1):
+    placeholder = st.empty()
+    current_text = ""
+    for char in text:
+        current_text += char
+        placeholder.markdown(f"""
+<div style="background-color:#93d;padding:15px;border-radius:10px">
+    <h3 style="color:white;text-align:center;font-family: OCR A Std, monospace;">{current_text}</h3>
+</div><br>
+""", unsafe_allow_html=True)
+        time.sleep(delay)
 
 def predict_obesity(Gender, Age, Height, Weight, family_history_with_overweight, FAVC, FCVC, NCP, SMOKE, CH2O, SCC, FAF, TUE, CAEC_Always, CAEC_Frequently, CAEC_Sometimes, CAEC_no, CALC_Always, CALC_Frequently, CALC_Sometimes, CALC_no, MTRANS_Automobile, MTRANS_Bike, MTRANS_Motorbike, MTRANS_Public_Transportation, MTRANS_Walking):
     input_data = np.array([Gender, Age, Height, Weight, family_history_with_overweight, FAVC, FCVC, NCP, SMOKE, CH2O, SCC, FAF, TUE, CAEC_Always, CAEC_Frequently, CAEC_Sometimes, CAEC_no, CALC_Always, CALC_Frequently, CALC_Sometimes, CALC_no, MTRANS_Automobile, MTRANS_Bike, MTRANS_Motorbike, MTRANS_Public_Transportation, MTRANS_Walking]).reshape(1, -1)
@@ -15,14 +26,64 @@ def predict_obesity(Gender, Age, Height, Weight, family_history_with_overweight,
     return prediction
 
 def main():
-    html_temp = """
-    <div style="background-color:#93d;padding:10px;border-radius:5px">
-        <h2 style="color:white;text-align:center;">Obesity Level Prediction</h2>
-    </div><br>
-    """
-    st.markdown(html_temp, unsafe_allow_html=True)
+    gradual_print_large("Obesity Level Prediction")
 
-    st.image(image_1, use_column_width=True)  
+    #st.image(image_1, use_column_width=True) 
+
+    from streamlit.components.v1 import html
+    import pandas as pd
+    from ipyvizzu import Chart, Data, Config, Style
+
+    def create_chart():
+        chart = Chart(width="640px", height="360px", display="manual")
+        data_frame = pd.read_csv("datasets/obesity_levels.csv")
+
+        data = Data()
+        data.add_data_frame(data_frame)
+        chart.animate(data)
+
+        chart.animate(Config({
+            "x": "Count",
+            "y": "ObesityLevel",
+            "label": "Count",
+        }))
+
+        # Transition config: Show divided by obesity categories
+        chart.animate(Config({
+            "x": "Count",
+            "y": "ObesityCategory",
+            "color": "ObesityCategory",
+            "label": ["Count", "ObesityCategory"],
+        }))
+        # Add style
+        # Custom styling
+        chart.animate(Style({
+            "title": {
+                "fontSize": "35px",
+                "color": "#4a90e2"
+            },
+            "plot": {
+                "backgroundColor": "#000",
+                "xAxis": {
+                    "label": {"color": "#000000"},
+                    "title": {"color": "#4a90e2"}
+                },
+                "yAxis": {
+                    "label": {"color": "#000000"},
+                    "title": {"color": "#4a90e2"}
+                },
+                "marker": {
+                    "colorPalette": ["#bd10e0", "#4a90e2", "#50e3c2", "#b8e986", "#f5a623", "#f8e71c", "#d0021b"]
+                }
+            },
+        }))
+
+        return chart._repr_html_()
+
+    CHART = create_chart()
+    html(CHART, width=650, height=370)
+
+
 
     gender = st.radio("Gender: ",
         key="gender",
@@ -158,6 +219,6 @@ def main():
             st.write("У вас Ожирение II степени")
         elif result == 6:
             st.write("У вас Ожирение III степени")
- 
+
 if __name__=='__main__':
     main()

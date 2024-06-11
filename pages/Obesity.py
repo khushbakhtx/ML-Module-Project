@@ -6,7 +6,10 @@ from PIL import Image
 import time
 image_1 = Image.open("img/1.png")
 
-model = joblib.load("models/obesity_model.joblib")
+model_info = joblib.load("models/obesity_package.joblib")
+model = model_info['model']
+accuracy = model_info['accuracy']
+
 def gradual_print_large(text, delay=0.1):
     placeholder = st.empty()
     current_text = ""
@@ -202,17 +205,17 @@ def main():
      
     if st.button("Predict"):
         result = predict_obesity(Gender, Age, Height, Weight, family_history_with_overweight, FAVC, FCVC, NCP, SMOKE, CH2O, SCC, FAF, TUE, CAEC_Always, CAEC_Frequently, CAEC_Sometimes, CAEC_no, CALC_Always, CALC_Frequently, CALC_Sometimes, CALC_no, MTRANS_Automobile, MTRANS_Bike, MTRANS_Motorbike, MTRANS_Public_Transportation, MTRANS_Walking)
-        accuracy = 93.1
-        st.write("Model Accuracy: ", accuracy, "%")
+        accuracy_ = round(accuracy*100, 2)
+        st.write("Model Accuracy: ", accuracy_, "%")
         #st.write("Predicted Level of Obesity: ", result)
         if result == 0:
-            st.write("У вас недостаточный вес для ваших параметров и превычек")
+            st.write("Вы не болеете ожирением, но у вас недостаточный вес для ваших параметров и превычек")
         elif result == 1:
-            st.write("У вас нормальный вес")
+            st.write("Вы не болеете ожирением.\n У вас нормальный вес, поздравляем!")
         elif result == 2:
-            st.write("У вас перевес I-го уровня, вам следует сбросить вес")
+            st.write("Вы не болеете ожирением, но у вас небольшой перевес I-го уровня")
         elif result == 3:
-            st.write("У вас перевес II-го уровня, вам следует сбросить вес")
+            st.write("Вы не болеете ожирением,но у вас перевес II-го уровня, у вас либо мышечная масса либо жир")
         elif result == 4:
             st.write("У вас Ожирение I степени")
         elif result == 5:

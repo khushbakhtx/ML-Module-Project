@@ -1,0 +1,40 @@
+What I missed? REQUIRED STEPS TO TAKE FOR PRESENTATION OF ML PROJECT
+Steps:
+
+- Explain the Main Idea. 
+- Clean and Code DataSet
+- Make a decent Visualization for clear explanation.
+- Chose the right model from as many as possible.
+- Make a dataframe with an accuracy of each Model.
+
+- Hyperparameters TUNING
+
+- accuracy, f1, recall, etc. AUC
+
+- Make a couple of Tests to prove specific hypothesis:
+    - Feature Test. (Features importance test)
+    - T-test
+    - Chi square test.(for categorical variables, how they impact on target)
+    - etc. Imbalance test..
+
+- How fast specific algorithms are. Visualize with matplotlib.
+
+Sources: Pandas profiling, Optuna, Feature tools
+
+? - Tell the difference between gradient boosting and random forest, to be concise, grind every algoriths and boosting algorithms.
+? - What is target-meaning-encoding?
+? - pipeline, baseline?
+? - out of sample and out of time validation - must to know what it is...
+
+If you really want AUC score, just make a binary classification [0, 1, 2, 3] = 0 and [4, 5, 6] = 1. You got this!
+P.S: binary classification didn't worked out for my case because of the highest auc score.
+
+THE END.
+
+Deploy
+
+ADDITIONAL STEPS:
+- difference between gradient boosting and random forest (grind as a junkie)
+- begging and boosting?
+
+revise each ml algorithm [regression, classification, and clustering]

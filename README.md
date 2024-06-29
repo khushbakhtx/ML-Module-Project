@@ -1,4 +1,5 @@
-**Couple of words**
+#Couple of words
+
 There are 3 models to be precise:
 1. NBA Points Prediction. Using linear regression I got a pretty high result with R squared somewhere around 84%
 2. Imon-International Bank. Credit scoring approval. I used binary classification for that one.

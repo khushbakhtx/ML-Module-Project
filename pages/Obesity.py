@@ -203,28 +203,29 @@ elif mtrans == "Walking":
     MTRANS_Walking = 1
 
 if st.button("Predict"):
-    result = predict_obesity(Gender, Age, Height, Weight, family_history_with_overweight, FAVC, FCVC, NCP, SMOKE, CH2O, SCC, FAF, TUE, CAEC_Always, CAEC_Frequently, CAEC_Sometimes, CAEC_no, CALC_Always, CALC_Frequently, CALC_Sometimes, CALC_no, MTRANS_Automobile, MTRANS_Bike, MTRANS_Motorbike, MTRANS_Public_Transportation, MTRANS_Walking)
-    
+    result = predict_obesity(Gender, Age, Height, Weight, family_history_with_overweight, FAVC, FCVC, NCP, SMOKE, CH2O, SCC, FAF, TUE,
+                              CAEC_Always, CAEC_Frequently, CAEC_Sometimes, CAEC_no,
+                              CALC_Always, CALC_Frequently, CALC_Sometimes, CALC_no,
+                              MTRANS_Automobile, MTRANS_Bike, MTRANS_Motorbike,
+                              MTRANS_Public_Transportation, MTRANS_Walking)
     accuracy_ = round(accuracy * 100, 2)
-    
     st.write("Model Accuracy: ", accuracy_, "%")
     
-   #st.write("Predicted Level of Obesity: ", result)
-    
-   if result == 0:
-       st.write("You are not obese but have insufficient weight for your parameters and habits.")
-   elif result == 1:
-       st.write("You are not obese. You have a normal weight; congratulations!")
-   elif result == 2:
-       st.write("You are not obese but have a slight overweight of the first level.")
-   elif result == 3:
-       st.write("You are not obese but have second-level overweight; you may have either muscle mass or fat.")
-   elif result == 4:
-       st.write("You have Grade I obesity.")
-   elif result == 5:
-       st.write("You have Grade II obesity.")
-   elif result == 6:
-       st.write("You have Grade III obesity.")
+    if result == 0:
+        st.write("You are not obese but have insufficient weight for your parameters and habits.")
+    elif result == 1:
+        st.write("You are not obese. You have a normal weight; congratulations!")
+    elif result == 2:
+        st.write("You are not obese but have a slight overweight of the first level.")
+    elif result == 3:
+        st.write("You are not obese but have second-level overweight; you may have either muscle mass or fat.")
+    elif result == 4:
+        st.write("You have Grade I obesity.")
+    elif result == 5:
+        st.write("You have Grade II obesity.")
+    elif result == 6:
+        st.write("You have Grade III obesity.")
+
 
 if __name__=='__main__':
    main()

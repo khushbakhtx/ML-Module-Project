@@ -221,6 +221,3 @@ if st.button("Predict"):
         st.write("You have Grade II obesity.")
     elif result == 6:
         st.write("You have Grade III obesity.")
-
-
-if __name__=='__main__':

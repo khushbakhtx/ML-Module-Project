@@ -95,133 +95,136 @@ def main():
         Gender = 1
     elif gender == "Female":
         Gender = 0  
-    Age = st.text_input("Возраст: ", "")
-    Height = st.text_input("Рост (in meters): ", "")
-    Weight = st.text_input("Вес (in kilos): ", "")
-    fam_hist = st.radio("Был ли какой либо предок с ожирением: ",  key="family", options=["Yes", "No"])
+    Age = st.text_input("Age: ", "")
+    Height = st.text_input("Height (in meters): ", "")
+    Weight = st.text_input("Weight (in kilos): ", "")
+    fam_hist = st.radio("Was there any ancestor with obesity: ",  key="family", options=["Yes", "No"])
     if fam_hist == "Yes":
         family_history_with_overweight = 1
     elif fam_hist == "No":
         family_history_with_overweight = 0
 
-    favc = st.radio("Употребляете ли вы часто высоко-колорийные продукты: ",  key="favc", options=["Yes", "No"])
+    favc = st.radio("Do you often consume high-calorie foods?: ",  key="favc", options=["Yes", "No"])
     if favc == "Yes":
         FAVC = 1
     elif fam_hist == "No":
         FAVC = 0
 
-    FCVC = st.text_input("Сколько раз за день вы обычно употребляете овощи: ", "")
-    NCP = st.text_input("Количество основных приемов пищи в день: ", "")
-    smoke = st.radio("Вы курите?", key="smoke", options=["Yes", "No"])
+    FCVC = st.text_input("How many times a day do you usually eat vegetables: ", "")
+    NCP = st.text_input("Number of main meals per day: ", "")
+    smoke = st.radio("Do you smoke?", key="smoke", options=["Yes", "No"])
     if smoke == "Yes":
         SMOKE = 1
     elif smoke == "No":
         SMOKE = 0
-    CH2O = st.text_input("Сколько раз в день вы пьете воду?", "")
-    scc = st.radio("Мониторите ли вы за кол. употребляемых колорий?", key="scc", options=["Yes", "No"])
+    CH2O = st.text_input("How many times a day do you drink water?", "")
+    scc = st.radio("Do you monitor the number of calories you consume?", key="scc", options=["Yes", "No"])
     if scc == "Yes":
         SCC = 1
     elif scc == "No":
         SCC = 0
-    FAF = st.text_input("Сколько раз в неделю вы занимаетесь физическими активностями", "")
-    TUE = st.text_input("Сколько часов в день вы тратите на электронные устройства (сматрфон, комп., телевизор, видео-игры итд)","")
+FAF = st.text_input("How many times a week do you engage in physical activities?", "")
+TUE = st.text_input("How many hours a day do you spend on electronic devices (smartphone, computer, television, video games, etc.)", "")
 
-    caec = st.radio("Употребляете ли еду между основными приемами пищи", key="caec", options=["Всегда", "Часто", "Иногда", "Никогда"])
-    if caec == "Всегда":
-        CAEC_Always = 1
-        CAEC_Frequently = 0
-        CAEC_Sometimes = 0
-        CAEC_no = 0
-    elif caec == "Часто":
-        CAEC_Always = 0
-        CAEC_Frequently = 1
-        CAEC_Sometimes = 0
-        CAEC_no = 0
-    elif caec == "Иногда":
-        CAEC_Always = 0
-        CAEC_Frequently = 0
-        CAEC_Sometimes = 1
-        CAEC_no = 0
-    elif caec == "Никогда":
-        CAEC_Always = 0
-        CAEC_Frequently = 0
-        CAEC_Sometimes = 0
-        CAEC_no = 1
+caec = st.radio("Do you consume food between main meals?", key="caec", options=["Always", "Often", "Sometimes", "Never"])
+if caec == "Always":
+    CAEC_Always = 1
+    CAEC_Frequently = 0
+    CAEC_Sometimes = 0
+    CAEC_no = 0
+elif caec == "Often":
+    CAEC_Always = 0
+    CAEC_Frequently = 1
+    CAEC_Sometimes = 0
+    CAEC_no = 0
+elif caec == "Sometimes":
+    CAEC_Always = 0
+    CAEC_Frequently = 0
+    CAEC_Sometimes = 1
+    CAEC_no = 0
+elif caec == "Never":
+    CAEC_Always = 0
+    CAEC_Frequently = 0
+    CAEC_Sometimes = 0
+    CAEC_no = 1
 
-    calc = st.radio("Как часто употреляет алкоголь?", key="calc", options=["Всегда", "Часто", "Иногда", "Никогда"])
-    if calc == "Всегда":
-        CALC_Always = 1
-        CALC_Frequently = 0
-        CALC_Sometimes = 0
-        CALC_no = 0
-    elif calc == "Часто":
-        CALC_Always = 0
-        CALC_Frequently = 1
-        CALC_Sometimes = 0
-        CALC_no = 0
-    elif calc == "Иногда":
-        CALC_Always = 0
-        CALC_Frequently = 0
-        CALC_Sometimes = 1
-        CALC_no = 0
-    elif calc == "Никогда":
-        CALC_Always = 0
-        CALC_Frequently = 0
-        CALC_Sometimes = 0
-        CALC_no = 1
+calc = st.radio("How often do you consume alcohol?", key="calc", options=["Always", "Often", "Sometimes", "Never"])
+if calc == "Always":
+    CALC_Always = 1
+    CALC_Frequently = 0
+    CALC_Sometimes = 0
+    CALC_no = 0
+elif calc == "Often":
+    CALC_Always = 0
+    CALC_Frequently = 1
+    CALC_Sometimes = 0
+    CALC_no = 0
+elif calc == "Sometimes":
+    CALC_Always = 0
+    CALC_Frequently = 0
+    CALC_Sometimes = 1
+    CALC_no = 0
+elif calc == "Never":
+    CALC_Always = 0
+    CALC_Frequently = 0
+    CALC_Sometimes = 0
+    CALC_no = 1
 
-    mtrans = st.radio("Каким видом транспорта часто пользуетесь?", key="mtrans", options=["Автомобиль", "Велосипед", "Мотоцикл", "Общественный транспорт", "Пешком"])
-    if mtrans == "Автомобиль":
-        MTRANS_Automobile = 1
-        MTRANS_Bike = 0
-        MTRANS_Motorbike = 0
-        MTRANS_Public_Transportation = 0
-        MTRANS_Walking = 0
-    elif mtrans == "Велосипед":
-        MTRANS_Automobile = 0
-        MTRANS_Bike = 1
-        MTRANS_Motorbike = 0
-        MTRANS_Public_Transportation = 0
-        MTRANS_Walking = 0 
-    elif mtrans == "Мотоцикл":
-        MTRANS_Automobile = 0
-        MTRANS_Bike = 0
-        MTRANS_Motorbike = 1
-        MTRANS_Public_Transportation = 0
-        MTRANS_Walking = 0
-    elif mtrans == "Общественный транспорт":
-        MTRANS_Automobile = 0
-        MTRANS_Bike = 0
-        MTRANS_Motorbike = 0
-        MTRANS_Public_Transportation = 1
-        MTRANS_Walking = 0          
-    elif mtrans == "Пешком":
-        MTRANS_Automobile = 0
-        MTRANS_Bike = 0
-        MTRANS_Motorbike = 0
-        MTRANS_Public_Transportation = 0
-        MTRANS_Walking = 1
+mtrans = st.radio("What mode of transportation do you use most often?", key="mtrans", options=["Car", "Bicycle", "Motorcycle", "Public Transportation", "Walking"])
+if mtrans == "Car":
+    MTRANS_Automobile = 1
+    MTRANS_Bike = 0
+    MTRANS_Motorbike = 0
+    MTRANS_Public_Transportation = 0
+    MTRANS_Walking = 0
+elif mtrans == "Bicycle":
+    MTRANS_Automobile = 0
+    MTRANS_Bike = 1
+    MTRANS_Motorbike = 0
+    MTRANS_Public_Transportation = 0
+    MTRANS_Walking = 0 
+elif mtrans == "Motorcycle":
+    MTRANS_Automobile = 0
+    MTRANS_Bike = 0
+    MTRANS_Motorbike = 1
+    MTRANS_Public_Transportation = 0
+    MTRANS_Walking = 0
+elif mtrans == "Public Transportation":
+    MTRANS_Automobile = 0
+    MTRANS_Bike = 0
+    MTRANS_Motorbike = 0
+    MTRANS_Public_Transportation = 1
+    MTRANS_Walking = 0          
+elif mtrans == "Walking":
+    MTRANS_Automobile = 0
+    MTRANS_Bike = 0
+    MTRANS_Motorbike = 0
+    MTRANS_Public_Transportation = 0
+    MTRANS_Walking = 1
 
-     
-    if st.button("Predict"):
-        result = predict_obesity(Gender, Age, Height, Weight, family_history_with_overweight, FAVC, FCVC, NCP, SMOKE, CH2O, SCC, FAF, TUE, CAEC_Always, CAEC_Frequently, CAEC_Sometimes, CAEC_no, CALC_Always, CALC_Frequently, CALC_Sometimes, CALC_no, MTRANS_Automobile, MTRANS_Bike, MTRANS_Motorbike, MTRANS_Public_Transportation, MTRANS_Walking)
-        accuracy_ = round(accuracy*100, 2)
-        st.write("Model Accuracy: ", accuracy_, "%")
-        #st.write("Predicted Level of Obesity: ", result)
-        if result == 0:
-            st.write("Вы не болеете ожирением, но у вас недостаточный вес для ваших параметров и превычек")
-        elif result == 1:
-            st.write("Вы не болеете ожирением.\n У вас нормальный вес, поздравляем!")
-        elif result == 2:
-            st.write("Вы не болеете ожирением, но у вас небольшой перевес I-го уровня")
-        elif result == 3:
-            st.write("Вы не болеете ожирением,но у вас перевес II-го уровня, у вас либо мышечная масса либо жир")
-        elif result == 4:
-            st.write("У вас Ожирение I степени")
-        elif result == 5:
-            st.write("У вас Ожирение II степени")
-        elif result == 6:
-            st.write("У вас Ожирение III степени")
+if st.button("Predict"):
+    result = predict_obesity(Gender, Age, Height, Weight, family_history_with_overweight, FAVC, FCVC, NCP, SMOKE, CH2O, SCC, FAF, TUE, CAEC_Always, CAEC_Frequently, CAEC_Sometimes, CAEC_no, CALC_Always, CALC_Frequently, CALC_Sometimes, CALC_no, MTRANS_Automobile, MTRANS_Bike, MTRANS_Motorbike, MTRANS_Public_Transportation, MTRANS_Walking)
+    
+    accuracy_ = round(accuracy * 100, 2)
+    
+    st.write("Model Accuracy: ", accuracy_, "%")
+    
+   #st.write("Predicted Level of Obesity: ", result)
+    
+   if result == 0:
+       st.write("You are not obese but have insufficient weight for your parameters and habits.")
+   elif result == 1:
+       st.write("You are not obese. You have a normal weight; congratulations!")
+   elif result == 2:
+       st.write("You are not obese but have a slight overweight of the first level.")
+   elif result == 3:
+       st.write("You are not obese but have second-level overweight; you may have either muscle mass or fat.")
+   elif result == 4:
+       st.write("You have Grade I obesity.")
+   elif result == 5:
+       st.write("You have Grade II obesity.")
+   elif result == 6:
+       st.write("You have Grade III obesity.")
 
 if __name__=='__main__':
-    main()
+   main()

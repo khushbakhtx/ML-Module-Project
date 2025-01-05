@@ -87,7 +87,7 @@ def main():
     html(CHART, width=650, height=370)
 
 
-
+main()
 gender = st.radio("Gender: ",
     key="gender",
     options=["Male", "Female"])

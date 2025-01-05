@@ -203,11 +203,7 @@ elif mtrans == "Walking":
     MTRANS_Walking = 1
 
 if st.button("Predict"):
-    result = predict_obesity(Gender, Age, Height, Weight, family_history_with_overweight, FAVC, FCVC, NCP, SMOKE, CH2O, SCC, FAF, TUE,
-                              CAEC_Always, CAEC_Frequently, CAEC_Sometimes, CAEC_no,
-                              CALC_Always, CALC_Frequently, CALC_Sometimes, CALC_no,
-                              MTRANS_Automobile, MTRANS_Bike, MTRANS_Motorbike,
-                              MTRANS_Public_Transportation, MTRANS_Walking)
+    result = predict_obesity(Gender, Age, Height, Weight, family_history_with_overweight, FAVC, FCVC, NCP, SMOKE, CH2O, SCC, FAF, TUE, CAEC_Always, CAEC_Frequently, CAEC_Sometimes, CAEC_no, CALC_Always, CALC_Frequently, CALC_Sometimes, CALC_no, MTRANS_Automobile, MTRANS_Bike, MTRANS_Motorbike, MTRANS_Public_Transportation, MTRANS_Walking)
     accuracy_ = round(accuracy * 100, 2)
     st.write("Model Accuracy: ", accuracy_, "%")
     
